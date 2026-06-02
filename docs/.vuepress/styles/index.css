@@ -20,6 +20,7 @@
   --search-c-item-focus: var(--vp-c-brand-3);
   --search-input-width: 13.5rem;
   --search-result-width: 25rem;
+  --global-search-width: clamp(12.5rem, 24vw, 16rem);
 }
 
 :root[data-theme='dark'] {
@@ -96,12 +97,16 @@ body {
   display: none;
 }
 
+.vp-navbar-items-wrapper {
+  right: calc(var(--global-search-width) + 2rem);
+}
+
 .global-search {
   position: fixed;
   top: 0.58rem;
   right: 1rem;
   z-index: 42;
-  width: min(17rem, 32vw);
+  width: var(--global-search-width);
 }
 
 .global-search__input {
@@ -210,183 +215,15 @@ body {
   border-color: var(--vp-c-brand-1);
 }
 
-.learning-path {
-  display: grid;
-  gap: 1rem;
-  padding-left: 0;
-  list-style: none;
-}
-
-.learning-path__item {
-  display: grid;
-  grid-template-columns: 2.25rem minmax(0, 1fr) auto;
-  gap: 1rem;
-  align-items: center;
-  padding: 1rem;
-  border: 1px solid var(--vp-c-border);
-  border-radius: 8px;
-  background: var(--vp-c-bg-elv);
-  box-shadow: var(--learn-shadow);
-}
-
-.learning-path__index {
-  display: grid;
-  width: 2.25rem;
-  height: 2.25rem;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--learn-terminal);
-  color: var(--learn-terminal-text);
-  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-}
-
-.learning-path__item a {
-  color: var(--vp-c-brand-1);
-  font-weight: 800;
-}
-
-.learning-path__item p {
-  margin: 0.25rem 0 0;
-  color: var(--vp-c-text-mute);
-}
-
-.learning-path__item small {
-  color: var(--learn-accent);
-  font-weight: 800;
-}
-
-.command-card,
-.practice-task,
-.quiz-block {
-  margin: 1.1rem 0;
-  padding: 1.15rem;
-  border: 1px solid var(--vp-c-border);
-  border-radius: 8px;
-  background: var(--vp-c-bg-elv);
-  box-shadow: var(--learn-shadow);
-}
-
-.command-card__header {
-  display: flex;
-  gap: 1rem;
-  align-items: start;
-  justify-content: space-between;
-}
-
-.command-card h3,
-.practice-task h3,
-.quiz-block h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1.12rem;
-}
-
-.command-card code {
-  padding: 0.45rem 0.65rem;
-  border-radius: 6px;
-  background: var(--learn-terminal);
-  color: var(--learn-terminal-text);
-  white-space: nowrap;
-}
-
-.command-card__meta,
-.command-card__caution {
-  color: var(--vp-c-text-mute);
-}
-
-.command-card__caution {
-  border-left: 3px solid var(--learn-accent);
-  padding-left: 0.75rem;
-}
-
-.practice-task__eyebrow,
-.quiz-block__eyebrow {
-  margin: 0 0 0.3rem;
-  color: var(--learn-accent);
-  font-size: 0.76rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-}
-
-.practice-task details {
-  margin-top: 1rem;
-}
-
-.practice-task summary {
-  color: var(--vp-c-brand-1);
-  font-weight: 800;
-  cursor: pointer;
-}
-
-.quiz-block__options {
-  display: grid;
-  gap: 0.7rem;
-}
-
-.quiz-block__option {
-  display: grid;
-  grid-template-columns: 2rem 1fr;
-  gap: 0.75rem;
-  align-items: center;
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid var(--vp-c-border);
-  border-radius: 8px;
-  background: var(--vp-c-bg);
-  color: var(--vp-c-text);
-  text-align: left;
-  cursor: pointer;
-}
-
-.quiz-block__option strong {
-  display: grid;
-  width: 2rem;
-  height: 2rem;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--vp-c-bg-alt);
-}
-
-.quiz-block__option--selected,
-.quiz-block__option--correct {
-  border-color: var(--vp-c-brand-1);
-}
-
-.quiz-block__option--correct strong {
-  background: var(--vp-c-brand-1);
-  color: var(--vp-c-bg);
-}
-
-.quiz-block__option--wrong {
-  border-color: #c2410c;
-}
-
-.quiz-block__result {
-  padding: 0.85rem;
-  border-radius: 8px;
-  background: #fff4e5;
-  color: #7c2d12;
-  font-weight: 700;
-}
-
-:root[data-theme='dark'] .quiz-block__result {
-  background: #3b2514;
-  color: #fed7aa;
-}
-
-.quiz-block__result--ok {
-  background: var(--vp-c-brand-3);
-  color: var(--vp-c-brand-1);
-}
-
-@media (max-width: 860px) {
+@media (max-width: 960px) {
   .theme-toggle {
     top: auto;
     right: 0.75rem;
     bottom: 0.75rem;
   }
 
-  .vp-navbar .links {
-    padding-right: 0;
+  .vp-navbar-items-wrapper {
+    right: 24px;
   }
 
   .global-search {
@@ -425,22 +262,4 @@ body {
     display: none;
   }
 
-  .learning-path__item {
-    grid-template-columns: 2.25rem minmax(0, 1fr);
-  }
-
-  .learning-path__item small {
-    grid-column: 2;
-  }
-
-  .command-card__header {
-    display: block;
-  }
-
-  .command-card code {
-    display: inline-block;
-    max-width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
 }

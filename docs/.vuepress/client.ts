@@ -5,6 +5,7 @@ import LearningPath from './components/LearningPath.vue'
 import PracticeTask from './components/PracticeTask.vue'
 import QuizBlock from './components/QuizBlock.vue'
 import ThemeToggle from './components/ThemeToggle.vue'
+import './styles/components.css'
 import './styles/index.css'
 
 export default defineClientConfig({
