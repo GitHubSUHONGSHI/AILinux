@@ -1,8 +1,8 @@
 ---
 home: true
-title: AILinuxSu学习站
+title: AILinux学习站
 heroImage: /images/terminal-mark.svg
-heroText: AILinuxSu学习站
+heroText: AILinux学习站
 tagline: 从第一次打开终端开始，按路径学会文件、命令、权限、进程、网络和服务管理。
 actions:
   - text: 从学习路径开始

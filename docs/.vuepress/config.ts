@@ -5,7 +5,7 @@ import { defineUserConfig } from 'vuepress'
 
 export default defineUserConfig({
   lang: 'zh-CN',
-  title: 'AILinuxSu学习站',
+  title: 'AILinux学习站',
   description: '面向零基础学习者的 Linux 路径化课程、命令速查、练习和测验。',
   bundler: viteBundler(),
   plugins: [
